@@ -1,1 +1,1 @@
-# invisible_map_creator
+# invisible-map-creator
