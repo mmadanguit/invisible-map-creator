@@ -11,7 +11,7 @@ import ARKit
 class AppController {
     public static var shared = AppController()
     private var state = AppState.initialState
-    var contentViewController: ContentViewController?
+    var contentViewer: ContentViewController?
     let mapRecorder = MapRecorder()
     var optionsMenuController: OptionsMenuController?
     
@@ -23,15 +23,19 @@ class AppController {
         processCommands(commands: state.handleEvent(event: .StartRecordingRequested))
     }
     
+    func optionsMenuRequested() {
+        processCommands(commands: state.handleEvent(event: .OptionsMenuRequested))
+    }
+    
     private func processCommands(commands: [AppState.Command]) {
         for command in commands {
             switch command {
             case .DisplayRecordingUI:
-                contentViewController?.displayRecordingUI()
+                contentViewer?.displayRecordingUI()
             case .DisplayMainScreen:
-                contentViewController?.displayMainScreen()
+                contentViewer?.displayMainScreen()
             case .DisplayOptionsMenu:
-                contentViewController?.displayOptionsMenu()
+                contentViewer?.displayOptionsMenu()
             case .AddTag(let pose, let tagId):
                 mapRecorder.addTag(pose: pose, tagId: tagId)
             case .AddWaypoint(let pose, let poseId, let waypointName):

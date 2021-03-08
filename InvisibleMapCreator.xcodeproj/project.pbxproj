@@ -15,6 +15,9 @@
 		1470FB1525F2064A00564036 /* StateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1470FB1425F2064A00564036 /* StateType.swift */; };
 		1470FB1825F2065F00564036 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1470FB1725F2065F00564036 /* AppController.swift */; };
 		1470FB1C25F2067600564036 /* MapRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1470FB1B25F2067600564036 /* MapRecorder.swift */; };
+		1470FB2125F27CC700564036 /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1470FB2025F27CC700564036 /* SideMenuViewModel.swift */; };
+		1470FB2625F27CF500564036 /* SideMenuOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1470FB2525F27CF500564036 /* SideMenuOptionView.swift */; };
+		1470FB2A25F27D0000564036 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1470FB2925F27D0000564036 /* SideMenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		1470FB1425F2064A00564036 /* StateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateType.swift; sourceTree = "<group>"; };
 		1470FB1725F2065F00564036 /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
 		1470FB1B25F2067600564036 /* MapRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRecorder.swift; sourceTree = "<group>"; };
+		1470FB2025F27CC700564036 /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
+		1470FB2525F27CF500564036 /* SideMenuOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuOptionView.swift; sourceTree = "<group>"; };
+		1470FB2925F27D0000564036 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +67,8 @@
 			isa = PBXGroup;
 			children = (
 				1470FAFE25F205EA00564036 /* InvisibleMapCreatorApp.swift */,
-				1470FB0025F205EA00564036 /* ContentView.swift */,
+				1470FB1F25F27CA100564036 /* Views */,
+				1470FB2425F27CD200564036 /* Models */,
 				1470FB0E25F2060E00564036 /* State Machine */,
 				1470FB0225F205F600564036 /* Assets.xcassets */,
 				1470FB0725F205F600564036 /* Info.plist */,
@@ -84,9 +91,35 @@
 				1470FB1425F2064A00564036 /* StateType.swift */,
 				1470FB0F25F2062A00564036 /* AppState.swift */,
 				1470FB1725F2065F00564036 /* AppController.swift */,
-				1470FB1B25F2067600564036 /* MapRecorder.swift */,
+				1470FB2F25F286B400564036 /* Controllers */,
 			);
 			path = "State Machine";
+			sourceTree = "<group>";
+		};
+		1470FB1F25F27CA100564036 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1470FB0025F205EA00564036 /* ContentView.swift */,
+				1470FB2925F27D0000564036 /* SideMenuView.swift */,
+				1470FB2525F27CF500564036 /* SideMenuOptionView.swift */,
+				1470FB2025F27CC700564036 /* SideMenuViewModel.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1470FB2425F27CD200564036 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1470FB2F25F286B400564036 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1470FB1B25F2067600564036 /* MapRecorder.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,9 +192,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1470FB1C25F2067600564036 /* MapRecorder.swift in Sources */,
+				1470FB2625F27CF500564036 /* SideMenuOptionView.swift in Sources */,
 				1470FB0125F205EA00564036 /* ContentView.swift in Sources */,
 				1470FB1825F2065F00564036 /* AppController.swift in Sources */,
+				1470FB2125F27CC700564036 /* SideMenuViewModel.swift in Sources */,
 				1470FB1525F2064A00564036 /* StateType.swift in Sources */,
+				1470FB2A25F27D0000564036 /* SideMenuView.swift in Sources */,
 				1470FB1025F2062A00564036 /* AppState.swift in Sources */,
 				1470FAFF25F205EA00564036 /* InvisibleMapCreatorApp.swift in Sources */,
 			);

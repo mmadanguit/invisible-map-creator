@@ -9,7 +9,26 @@ import SwiftUI
 
 struct SideMenuView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            VStack {
+                // Header
+                HStack {
+                    Text("Menu")
+                        .font(.largeTitle)
+                        .bold()
+                    
+                    Spacer()
+                }
+                
+                // Side Menu Content
+                ForEach(SideMenuViewModel.allCases, id:\.self) { option in
+                    SideMenuOptionView(viewModel: option)
+                }
+                
+                Spacer()
+            }
+            .padding()
+        }
     }
 }
 

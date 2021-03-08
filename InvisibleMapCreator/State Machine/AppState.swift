@@ -92,6 +92,7 @@ enum RecordMapState: StateType {
     // Lower level app states nested within RecordMapState
     case RecordMap
     case ViewWaypoints
+    // Add Waypoint state
         
     // Initial state upon transitioning into the RecordMapState
     static let initialState = RecordMapState.RecordMap
