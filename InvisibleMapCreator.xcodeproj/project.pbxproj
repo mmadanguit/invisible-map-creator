@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14474A4D25F6E8FB00B51793 /* PrintTagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14474A4C25F6E8FB00B51793 /* PrintTagsView.swift */; };
+		14474A5025F6E9DB00B51793 /* ManageMapsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14474A4F25F6E9DB00B51793 /* ManageMapsView.swift */; };
+		14474A5625F6EA7000B51793 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14474A5525F6EA7000B51793 /* SettingsView.swift */; };
+		14474A5925F6EA8500B51793 /* VideoWalkthroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14474A5825F6EA8500B51793 /* VideoWalkthroughView.swift */; };
+		14474A5D25F6EB0800B51793 /* GiveFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14474A5C25F6EB0800B51793 /* GiveFeedbackView.swift */; };
 		1470FAFF25F205EA00564036 /* InvisibleMapCreatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1470FAFE25F205EA00564036 /* InvisibleMapCreatorApp.swift */; };
 		1470FB0125F205EA00564036 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1470FB0025F205EA00564036 /* ContentView.swift */; };
 		1470FB0325F205F600564036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1470FB0225F205F600564036 /* Assets.xcassets */; };
@@ -21,6 +26,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14474A4C25F6E8FB00B51793 /* PrintTagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintTagsView.swift; sourceTree = "<group>"; };
+		14474A4F25F6E9DB00B51793 /* ManageMapsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageMapsView.swift; sourceTree = "<group>"; };
+		14474A5525F6EA7000B51793 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		14474A5825F6EA8500B51793 /* VideoWalkthroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoWalkthroughView.swift; sourceTree = "<group>"; };
+		14474A5C25F6EB0800B51793 /* GiveFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveFeedbackView.swift; sourceTree = "<group>"; };
 		1470FAFB25F205EA00564036 /* InvisibleMapCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InvisibleMapCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1470FAFE25F205EA00564036 /* InvisibleMapCreatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvisibleMapCreatorApp.swift; sourceTree = "<group>"; };
 		1470FB0025F205EA00564036 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -47,6 +57,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14474A5225F6E9E000B51793 /* Menu Views */ = {
+			isa = PBXGroup;
+			children = (
+				1470FB2925F27D0000564036 /* SideMenuView.swift */,
+				1470FB2525F27CF500564036 /* SideMenuOptionView.swift */,
+				1470FB2025F27CC700564036 /* SideMenuViewModel.swift */,
+				14474A4C25F6E8FB00B51793 /* PrintTagsView.swift */,
+				14474A4F25F6E9DB00B51793 /* ManageMapsView.swift */,
+				14474A5525F6EA7000B51793 /* SettingsView.swift */,
+				14474A5825F6EA8500B51793 /* VideoWalkthroughView.swift */,
+				14474A5C25F6EB0800B51793 /* GiveFeedbackView.swift */,
+			);
+			path = "Menu Views";
+			sourceTree = "<group>";
+		};
 		1470FAF225F205EA00564036 = {
 			isa = PBXGroup;
 			children = (
@@ -68,7 +93,6 @@
 			children = (
 				1470FAFE25F205EA00564036 /* InvisibleMapCreatorApp.swift */,
 				1470FB1F25F27CA100564036 /* Views */,
-				1470FB2425F27CD200564036 /* Models */,
 				1470FB0E25F2060E00564036 /* State Machine */,
 				1470FB0225F205F600564036 /* Assets.xcassets */,
 				1470FB0725F205F600564036 /* Info.plist */,
@@ -100,18 +124,9 @@
 			isa = PBXGroup;
 			children = (
 				1470FB0025F205EA00564036 /* ContentView.swift */,
-				1470FB2925F27D0000564036 /* SideMenuView.swift */,
-				1470FB2525F27CF500564036 /* SideMenuOptionView.swift */,
-				1470FB2025F27CC700564036 /* SideMenuViewModel.swift */,
+				14474A5225F6E9E000B51793 /* Menu Views */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		1470FB2425F27CD200564036 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		1470FB2F25F286B400564036 /* Controllers */ = {
@@ -191,13 +206,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14474A5D25F6EB0800B51793 /* GiveFeedbackView.swift in Sources */,
+				14474A5025F6E9DB00B51793 /* ManageMapsView.swift in Sources */,
 				1470FB1C25F2067600564036 /* MapRecorder.swift in Sources */,
 				1470FB2625F27CF500564036 /* SideMenuOptionView.swift in Sources */,
 				1470FB0125F205EA00564036 /* ContentView.swift in Sources */,
+				14474A4D25F6E8FB00B51793 /* PrintTagsView.swift in Sources */,
 				1470FB1825F2065F00564036 /* AppController.swift in Sources */,
 				1470FB2125F27CC700564036 /* SideMenuViewModel.swift in Sources */,
 				1470FB1525F2064A00564036 /* StateType.swift in Sources */,
 				1470FB2A25F27D0000564036 /* SideMenuView.swift in Sources */,
+				14474A5925F6EA8500B51793 /* VideoWalkthroughView.swift in Sources */,
+				14474A5625F6EA7000B51793 /* SettingsView.swift in Sources */,
 				1470FB1025F2062A00564036 /* AppState.swift in Sources */,
 				1470FAFF25F205EA00564036 /* InvisibleMapCreatorApp.swift in Sources */,
 			);

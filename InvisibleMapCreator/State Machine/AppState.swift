@@ -12,7 +12,7 @@ enum AppState: StateType {
     // Higher level app states
     case MainScreen
     case RecordMap(RecordMapState)
-    case OptionsMenu(OptionsMenuState)
+    case OptionsMenu
     
     // Initial state upon opening the app
     static let initialState = AppState.MainScreen
@@ -28,12 +28,6 @@ enum AppState: StateType {
         case NewTagFound(pose: simd_float4x4, tagId: Int)
         case AddWaypointRequested(pose: simd_float4x4, poseId: Int, waypointName: String)
         case ViewWaypointsRequested
-        // OptionsMenu events
-        case PrintTagsRequested
-        case ManageMapsRequested
-        case SettingsRequested
-        case VideoWalkthroughRequested
-        case GiveFeedbackRequested
     }
     
     // All the effectful outputs which the state desires to have performed on the app
@@ -46,12 +40,6 @@ enum AppState: StateType {
         case AddWaypoint(pose: simd_float4x4, poseId: Int, waypointName: String)
         case DisplayWaypointsUI
         case SaveMap(mapName: String)
-        // OptionsMenu commands
-        case DisplayTagsPDF
-        case DisplayManageMapsUI
-        case DisplaySettingsUI
-        case DisplayVideoWalkthrough
-        case DisplayGiveFeedbackUI
         // RecordMap and OptionsMenu commands
         case DisplayMainScreen
     }
@@ -63,7 +51,7 @@ enum AppState: StateType {
             self = .RecordMap(.RecordMap)
             return [.DisplayRecordingUI]
         case (.MainScreen, .OptionsMenuRequested):
-            self = .OptionsMenu(.OptionsMenu)
+            self = .OptionsMenu
             return [.DisplayOptionsMenu]
         case (.RecordMap, .StopRecordingRequested(let mapName)):
             self = .MainScreen
@@ -76,11 +64,6 @@ enum AppState: StateType {
         case(.OptionsMenu, .MainScreenRequested):
             self = .MainScreen
             return [.DisplayMainScreen]
-        case (.OptionsMenu(let state), _) where OptionsMenuState.Event(event) != nil:
-            var newState = state
-            let commands = newState.handleEvent(event: OptionsMenuState.Event(event)!)
-            self = .OptionsMenu(newState)
-            return commands
             
         default: break
         }
@@ -133,80 +116,6 @@ extension RecordMapState.Event {
             self = .AddWaypointRequested(pose: pose, poseId: poseId, waypointName: waypointName)
         case .ViewWaypointsRequested:
             self = .ViewWaypointsRequested
-            
-        default: return nil
-        }
-    }
-}
-
-enum OptionsMenuState: StateType {
-    // Lower level app states nested within RecordMapState
-    case OptionsMenu
-    case PrintTags
-    case ManageMaps
-    case Settings
-    case VideoWalkthrough
-    case GiveFeedback
-        
-    // Initial state upon transitioning into the OptionsMenuState
-    static let initialState = OptionsMenuState.OptionsMenu
-    
-    // All the effectual inputs from the app which RecordMapState can react to
-    enum Event {
-        case OptionsMenuRequested
-        case PrintTagsRequested
-        case ManageMapsRequested
-        case SettingsRequested
-        case VideoWalkthroughRequested
-        case GiveFeedbackRequested
-    }
-    
-    // Refers to commands defined in AppState
-    typealias Command = AppState.Command
-    
-    // In response to an event, RecordMapState may emit a command
-    mutating func handleEvent(event: Event) -> [Command] {
-        switch (self, event) {
-        case(.OptionsMenu, .PrintTagsRequested):
-            self = .PrintTags
-            return [.DisplayTagsPDF]
-        case(.OptionsMenu, .ManageMapsRequested):
-            self = .ManageMaps
-            return [.DisplayManageMapsUI]
-        case(.OptionsMenu, .SettingsRequested):
-            self = .Settings
-            return [.DisplaySettingsUI]
-        case(.OptionsMenu, .VideoWalkthroughRequested):
-            self = .VideoWalkthrough
-            return [.DisplayVideoWalkthrough]
-        case(.OptionsMenu, .GiveFeedbackRequested):
-            self = .GiveFeedback
-            return [.DisplayGiveFeedbackUI]
-        case(_, .OptionsMenuRequested):
-            self = .OptionsMenu
-            return [.DisplayOptionsMenu]
-            
-        default: break
-        }
-        return []
-    }
-}
-
-extension OptionsMenuState.Event {
-    init?(_ event: AppState.Event) {
-        switch event {
-        case .OptionsMenuRequested:
-            self = .OptionsMenuRequested
-        case .PrintTagsRequested:
-            self = .PrintTagsRequested
-        case .ManageMapsRequested:
-            self = .ManageMapsRequested
-        case .SettingsRequested:
-            self = .SettingsRequested
-        case .VideoWalkthroughRequested:
-            self = .VideoWalkthroughRequested
-        case .GiveFeedbackRequested:
-            self = .GiveFeedbackRequested
             
         default: return nil
         }

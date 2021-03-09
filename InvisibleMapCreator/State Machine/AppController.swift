@@ -13,18 +13,8 @@ class AppController {
     private var state = AppState.initialState
     var contentViewer: ContentViewController?
     let mapRecorder = MapRecorder()
-    var optionsMenuController: OptionsMenuController?
     
     private init() {
-        
-    }
-    
-    func startRecordingRequested() {
-        processCommands(commands: state.handleEvent(event: .StartRecordingRequested))
-    }
-    
-    func optionsMenuRequested() {
-        processCommands(commands: state.handleEvent(event: .OptionsMenuRequested))
     }
     
     private func processCommands(commands: [AppState.Command]) {
@@ -44,18 +34,19 @@ class AppController {
                 mapRecorder.displayWaypointsUI()
             case .SaveMap(let mapName):
                 mapRecorder.saveMap(mapName: mapName)
-            case .DisplayTagsPDF:
-                optionsMenuController?.displayTagsPDF()
-            case .DisplayManageMapsUI:
-                optionsMenuController?.displayManageMapsUI()
-            case .DisplaySettingsUI:
-                optionsMenuController?.displaySettingsUI()
-            case .DisplayVideoWalkthrough:
-                optionsMenuController?.displayVideoWalkthrough()
-            case .DisplayGiveFeedbackUI:
-                optionsMenuController?.displayGiveFeedbackUI()
             }
         }
+    }
+}
+
+extension AppController {
+    // contentViewer event functions
+    func mainScreenRequested() {
+        processCommands(commands: state.handleEvent(event: .MainScreenRequested))
+    }
+    
+    func optionsMenuRequested() {
+        processCommands(commands: state.handleEvent(event: .OptionsMenuRequested))
     }
 }
 
@@ -70,12 +61,4 @@ protocol MapRecorderController {
     func addWaypoint(pose: simd_float4x4, poseId: Int, waypointName: String)
     func displayWaypointsUI()
     func saveMap(mapName: String)
-}
-
-protocol OptionsMenuController {
-    func displayTagsPDF()
-    func displayManageMapsUI()
-    func displaySettingsUI()
-    func displayVideoWalkthrough()
-    func displayGiveFeedbackUI()
 }
