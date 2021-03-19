@@ -37,7 +37,7 @@ class ARView: UIViewController, ARSCNViewDelegate {
        super.viewDidLoad()
        arView.delegate = self
        arView.scene = SCNScene()
-        arView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+       arView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
     }
     
     // Functions for standard AR view handling
@@ -61,8 +61,7 @@ class ARView: UIViewController, ARSCNViewDelegate {
     func sessionWasInterrupted(_ session: ARSession) {}
     
     func sessionInterruptionEnded(_ session: ARSession) {}
-    func session(_ session: ARSession, didFailWithError error: Error)
-    {}
+    func session(_ session: ARSession, didFailWithError error: Error) {}
     func session(_ session: ARSession, cameraDidChangeTrackingState
     camera: ARCamera) {}
     

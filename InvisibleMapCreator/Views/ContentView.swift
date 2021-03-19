@@ -46,26 +46,17 @@ struct NavigationIndicator: UIViewControllerRepresentable {
 struct ContentView: View {
     
     @ObservedObject var popoverViewWrapper = GlobalState.shared.popoverViewWrapper // Track changes to popoverUI
-    @State var showPopover: Bool = false // Track whether popover is showing
     
     init() {
         AppController.shared.contentViewer = self
     }
     
-    func buildPopoverView() -> some View {
-        switch popoverViewWrapper.popoverUI {
-        case .optionsMenu:
-            return AnyView(SideMenuView())
-        case .recordMap:
-            return AnyView(Text("Record Map"))
-        }
-    }
-    
     var body: some View {
 
         ZStack {
-          NavigationIndicator()
-          
+          NavigationIndicator().edgesIgnoringSafeArea(.all)
+          CameraButtons()
+/*
           Button(action: {
             showPopover = true
             AppController.shared.optionsMenuRequested() // Indicate change to state machine
@@ -77,6 +68,7 @@ struct ContentView: View {
           }) {
               buildPopoverView() // Build popover UI
           }
+        */
         }
   }
 }
