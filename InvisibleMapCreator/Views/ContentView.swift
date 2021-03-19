@@ -24,12 +24,23 @@ class PopoverViewTypeWrapper: ObservableObject {
 
 // Store popoverViewWrapper outside of view struct
 class GlobalState {
-    var popoverViewWrapper = PopoverViewTypeWrapper()
     public static var shared = GlobalState()
+    var popoverViewWrapper = PopoverViewTypeWrapper()
     
     private init() {
         
     }
+}
+
+// MARK: - NavigationIndicator
+struct NavigationIndicator: UIViewControllerRepresentable {
+   typealias UIViewControllerType = ARView
+   func makeUIViewController(context: Context) -> ARView {
+      return ARView()
+   }
+   func updateUIViewController(_ uiViewController:
+   NavigationIndicator.UIViewControllerType, context:
+   UIViewControllerRepresentableContext<NavigationIndicator>) { }
 }
 
 struct ContentView: View {
@@ -52,9 +63,8 @@ struct ContentView: View {
     
     var body: some View {
 
-        VStack(spacing: 50) {
-          Text("Main View")
-            .font(.largeTitle)
+        ZStack {
+          NavigationIndicator()
           
           Button(action: {
             showPopover = true

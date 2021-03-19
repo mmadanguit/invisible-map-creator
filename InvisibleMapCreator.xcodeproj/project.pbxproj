@@ -23,6 +23,7 @@
 		1470FB2125F27CC700564036 /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1470FB2025F27CC700564036 /* SideMenuViewModel.swift */; };
 		1470FB2625F27CF500564036 /* SideMenuOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1470FB2525F27CF500564036 /* SideMenuOptionView.swift */; };
 		1470FB2A25F27D0000564036 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1470FB2925F27D0000564036 /* SideMenuView.swift */; };
+		14752BA32604E31900201669 /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14752BA22604E31900201669 /* ARView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		1470FB2025F27CC700564036 /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
 		1470FB2525F27CF500564036 /* SideMenuOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuOptionView.swift; sourceTree = "<group>"; };
 		1470FB2925F27D0000564036 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		14752BA22604E31900201669 /* ARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				1470FB0025F205EA00564036 /* ContentView.swift */,
+				14752BA22604E31900201669 /* ARView.swift */,
 				14474A5225F6E9E000B51793 /* Menu Views */,
 			);
 			path = Views;
@@ -210,6 +213,7 @@
 				14474A5025F6E9DB00B51793 /* ManageMapsView.swift in Sources */,
 				1470FB1C25F2067600564036 /* MapRecorder.swift in Sources */,
 				1470FB2625F27CF500564036 /* SideMenuOptionView.swift in Sources */,
+				14752BA32604E31900201669 /* ARView.swift in Sources */,
 				1470FB0125F205EA00564036 /* ContentView.swift in Sources */,
 				14474A4D25F6E8FB00B51793 /* PrintTagsView.swift in Sources */,
 				1470FB1825F2065F00564036 /* AppController.swift in Sources */,

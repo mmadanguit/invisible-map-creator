@@ -9,7 +9,22 @@ import SwiftUI
 
 struct SettingsView: View {
     var body: some View {
-        Text("Settings")
+        VStack {
+            NavigationView {
+                Form {
+                    Section(header: Text("General Options")) {
+                        Text("Account")
+                        Text("Length of Tag Edge")
+                    }
+                    
+                    Section(header: Text("Next Settings")) {
+                        Text("Settings Go Here")
+                    }
+                }
+                .navigationBarTitle("Settings")
+            }
+            Spacer()
+        }
     }
 }
 
