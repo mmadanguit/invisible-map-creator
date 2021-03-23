@@ -25,8 +25,8 @@ struct MainScreenButtons: View {
         
         let iconsize = 30
         let roundButtonFrameSize = 40
-        let buttonOpacity = 0.8
-        //let buttonColor = "Color.black"
+        let buttonOpacity = 0.7
+//      let buttonColor = Color.blue
         
         VStack(alignment: .leading){
             HStack{
@@ -34,16 +34,15 @@ struct MainScreenButtons: View {
                     showPopover = true
                     AppController.shared.optionsMenuRequested() // Indicate change to state machine
                 }){
-                    Text("Menu")
+                    Text("Menu") // Menu button
                         .fontWeight(.bold)
                         .font(.system(size: 20))
                         .frame(width: 75, height: 40)
-                        .background(Color.black)
                         .foregroundColor(.white)
-                        .cornerRadius(13)
-                        .opacity(buttonOpacity)
-                        .padding([.top, .leading], 20)
                 }
+                .background(RoundedRectangle(cornerRadius: 13).opacity(buttonOpacity))
+                        .padding([.top, .leading], 20)
+                        
                 .sheet(isPresented: $showPopover, onDismiss: {
                     AppController.shared.mainScreenRequested() // Indicate change to state machine
                 }) {
@@ -55,59 +54,52 @@ struct MainScreenButtons: View {
                 Button(action: {}){
                     Image(systemName: "arrowshape.turn.up.left.fill")
                         .frame(width: 40, height: 40)
-                        .background(Color.black)
-                        .opacity(buttonOpacity)
                         .foregroundColor(.white)
                         .font(.system(size: 20))
-                        .cornerRadius(13)
-                        .padding([.top, .trailing], 15)
                 }
+                .background(RoundedRectangle(cornerRadius: 13).opacity(buttonOpacity))
+                    .padding([.top, .trailing], 20)
             }
             
          
             Spacer()
-            HStack{
+            HStack{ // Button bar
                 Spacer()
                 Button(action: {}){
-                    Image(systemName: "line.horizontal.3")
+                    Image(systemName: "line.horizontal.3") // List of POIs
                         .foregroundColor(.white)
                         .frame(width: CGFloat(roundButtonFrameSize), height: CGFloat(roundButtonFrameSize))
                         .padding(10)
-                        .background(Color.black)
-                        .opacity(buttonOpacity)
                         .font(.system(size: CGFloat(iconsize)))
-                        .cornerRadius(CGFloat(roundButtonFrameSize))
                 }
+                .background(Circle().opacity(buttonOpacity))
                 Spacer()
                 
                 Button(action: {
                     AppController.shared.startRecordingRequested() // Indicate change to state machine
                 }){
-                    Image(systemName: "circle.fill")
-                        .padding(10)
-                        .background(Color.red)
+                    Image(systemName: "circle.fill") // Record button image
+                        .padding(10) // padding around image
+                        .background(Color.red) //color of shape behind image
                         .cornerRadius(CGFloat(roundButtonFrameSize))
-                        .foregroundColor(.red)
-                        .font(.system(size: CGFloat(iconsize)))
-                            .padding(5)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 40)
-                                    .stroke(Color.gray, lineWidth: 4)
-                            )
+                        .foregroundColor(.red) //color of shape
+                        .font(.system(size: CGFloat(iconsize)))//size of shape
+                        .padding(5) //padding between red circle and white circle
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 40)
+                                .stroke(Color.white, lineWidth: 4)//white circle
+                        )
                 }
-                
                 Spacer()
-                
+            
                 Button(action: {}){
-                    Image(systemName: "plus")
+                    Image(systemName: "plus") // Add POI button
                         .foregroundColor(.white)
                         .frame(width: CGFloat(roundButtonFrameSize), height: CGFloat(roundButtonFrameSize))
                         .padding(10)
-                        .background(Color.black)
-                        .opacity(buttonOpacity)
                         .font(.system(size: CGFloat(iconsize)))
-                        .cornerRadius(CGFloat(roundButtonFrameSize))
                 }
+                .background(Circle().opacity(buttonOpacity))
                 Spacer()
         }
       
