@@ -21,7 +21,7 @@ struct ARViewIndicator: UIViewControllerRepresentable {
    UIViewControllerRepresentableContext<ARViewIndicator>) { }
 }
 
-class ARView: UIViewController, ARSCNViewDelegate {
+class ARView: UIViewController {
     
     // Create an AR view
     var arView: ARSCNView {
@@ -57,9 +57,12 @@ class ARView: UIViewController, ARSCNViewDelegate {
        super.viewWillDisappear(animated)
        arView.session.pause()
     }
+}
+
+extension ARView: ARSCNViewDelegate {
+    
     // ARSCNViewDelegate
     func sessionWasInterrupted(_ session: ARSession) {}
-    
     func sessionInterruptionEnded(_ session: ARSession) {}
     func session(_ session: ARSession, didFailWithError error: Error) {}
     func session(_ session: ARSession, cameraDidChangeTrackingState

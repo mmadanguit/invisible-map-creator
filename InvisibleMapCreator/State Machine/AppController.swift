@@ -44,9 +44,11 @@ extension AppController {
     func mainScreenRequested() {
         processCommands(commands: state.handleEvent(event: .MainScreenRequested))
     }
-    
     func optionsMenuRequested() {
         processCommands(commands: state.handleEvent(event: .OptionsMenuRequested))
+    }
+    func startRecordingRequested() {
+        processCommands(commands: state.handleEvent(event: .StartRecordingRequested))
     }
 }
 

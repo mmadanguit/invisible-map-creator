@@ -1,5 +1,5 @@
 //
-//  CameraButtons.swift
+//  MainScreenButtons.swift
 //  InvisibleMapCreator
 //
 //  Created by Marion Madanguit on 3/19/21.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct CameraButtons: View {
+struct MainScreenButtons: View {
     
-    @ObservedObject var popoverViewWrapper = GlobalState.shared.popoverViewWrapper // Track changes to popoverUI
+    @ObservedObject var popoverViewWrapper = GlobalState.shared.popoverViewWrapper // Track changes to popover UI
     @State var showPopover: Bool = false // Track whether popover is showing
     
     func buildPopoverView() -> some View {
@@ -49,6 +49,7 @@ struct CameraButtons: View {
                 }) {
                     buildPopoverView() // Build popover UI
                 }
+                .disabled(true)
                 
                 Spacer()
                 Button(action: {}){
@@ -79,7 +80,9 @@ struct CameraButtons: View {
                 }
                 Spacer()
                 
-                Button(action: {}){
+                Button(action: {
+                    AppController.shared.startRecordingRequested() // Indicate change to state machine
+                }){
                     Image(systemName: "circle.fill")
                         .padding(10)
                         .background(Color.red)
@@ -111,9 +114,9 @@ struct CameraButtons: View {
     }
 }
 
-struct CameraButtons_Previews: PreviewProvider {
+struct MainScreenButtons_Previews: PreviewProvider {
     static var previews: some View {
-        CameraButtons()
+        MainScreenButtons()
     }
 }
 }
