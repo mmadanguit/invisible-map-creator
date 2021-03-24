@@ -7,10 +7,37 @@
 
 import SwiftUI
 
+struct RectangleButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .frame(width: 80, height: 40)
+            .padding(5)
+            .foregroundColor(.white)
+            .font(.system(size: 20))
+            .background(
+                RoundedRectangle(cornerRadius: 15)
+                    .opacity(0.7))
+    }
+}
+
+struct CircleButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .frame(width: CGFloat(40), height: CGFloat(40))
+            .padding(10)
+            .foregroundColor(.white)
+            .font(.system(size: CGFloat(30)))
+            .background(
+                Circle()
+                    .opacity(0.7))
+    }
+}
+
 struct MainScreenButtons: View {
     
     @ObservedObject var popoverViewWrapper = GlobalState.shared.popoverViewWrapper // Track changes to popover UI
     @State var showPopover: Bool = false // Track whether popover is showing
+    @State var recording = false // Track whether map is currently being recorded
     
     func buildPopoverView() -> some View {
         switch popoverViewWrapper.popoverUI {
@@ -22,88 +49,86 @@ struct MainScreenButtons: View {
     }
     
     var body: some View {
-        
-        let iconsize = 30
-        let roundButtonFrameSize = 40
-        let buttonOpacity = 0.7
-//      let buttonColor = Color.blue
-        
-        VStack(alignment: .leading){
-            HStack{
+        VStack {
+            HStack {
+                // Menu button
                 Button(action: {
                     showPopover = true
-                    AppController.shared.optionsMenuRequested() // Indicate change to state machine
+                    AppController.shared.optionsMenuRequested() // Request options menu in state machine
                 }){
-                    Text("Menu") // Menu button
-                        .fontWeight(.bold)
-                        .font(.system(size: 20))
-                        .frame(width: 75, height: 40)
-                        .foregroundColor(.white)
+                    Text("Menu")
+                        .accessibility(label: Text("Options menu"))
                 }
-                .background(RoundedRectangle(cornerRadius: 13).opacity(buttonOpacity))
-                        .padding([.top, .leading], 20)
-                        
+                .buttonStyle(RectangleButtonStyle())
                 .sheet(isPresented: $showPopover, onDismiss: {
-                    AppController.shared.mainScreenRequested() // Indicate change to state machine
+                    AppController.shared.mainScreenRequested() // Request main screen in state machine
                 }) {
                     buildPopoverView() // Build popover UI
                 }
+                
+                Spacer()
+                
+                // Undo button
+                Button(action: {}){
+                    Image(systemName: "arrow.uturn.backward")
+                        .accessibility(label: Text("Undo"))
+                }
+                .buttonStyle(RectangleButtonStyle())
+                // Disable in MainScreen state
+                .opacity(0.5)
+                .disabled(true)
+            }
+        
+            Spacer()
+            
+            HStack {
+                // Manage locations button
+                Button(action: {}){
+                    Image(systemName: "line.horizontal.3")
+                        .accessibility(label: Text("Manage locations"))
+                }
+                .buttonStyle(CircleButtonStyle())
+                // Disable in MainScreen state
+                .opacity(0.5)
                 .disabled(true)
                 
                 Spacer()
-                Button(action: {}){
-                    Image(systemName: "arrowshape.turn.up.left.fill")
-                        .frame(width: 40, height: 40)
-                        .foregroundColor(.white)
-                        .font(.system(size: 20))
-                }
-                .background(RoundedRectangle(cornerRadius: 13).opacity(buttonOpacity))
-                    .padding([.top, .trailing], 20)
-            }
-            
-         
-            Spacer()
-            HStack{ // Button bar
-                Spacer()
-                Button(action: {}){
-                    Image(systemName: "line.horizontal.3") // List of POIs
-                        .foregroundColor(.white)
-                        .frame(width: CGFloat(roundButtonFrameSize), height: CGFloat(roundButtonFrameSize))
-                        .padding(10)
-                        .font(.system(size: CGFloat(iconsize)))
-                }
-                .background(Circle().opacity(buttonOpacity))
-                Spacer()
                 
+                // Record map button
                 Button(action: {
-                    AppController.shared.startRecordingRequested() // Indicate change to state machine
+                    withAnimation {
+                        recording = true
+                    }
+                    AppController.shared.startRecordingRequested() // Request start recording in state machine
                 }){
-                    Image(systemName: "circle.fill") // Record button image
-                        .padding(10) // padding around image
-                        .background(Color.red) //color of shape behind image
-                        .cornerRadius(CGFloat(roundButtonFrameSize))
-                        .foregroundColor(.red) //color of shape
-                        .font(.system(size: CGFloat(iconsize)))//size of shape
-                        .padding(5) //padding between red circle and white circle
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 40)
-                                .stroke(Color.white, lineWidth: 4)//white circle
-                        )
+                    ZStack {
+                        Circle()
+                            .stroke(lineWidth: 6)
+                            .foregroundColor(.white)
+                            .frame(width: 80, height: 80)
+
+                        RoundedRectangle(cornerRadius: recording ? 8 : 68 / 2)
+                            .foregroundColor(.red)
+                            .frame(width: recording ? 32 : 68, height: recording ? 32 : 68)
+                    }
+                    .animation(.linear(duration: 0.2))
+                    .accessibility(label: Text("Record map"))
                 }
+     
                 Spacer()
             
+                // Add location button
                 Button(action: {}){
-                    Image(systemName: "plus") // Add POI button
-                        .foregroundColor(.white)
-                        .frame(width: CGFloat(roundButtonFrameSize), height: CGFloat(roundButtonFrameSize))
-                        .padding(10)
-                        .font(.system(size: CGFloat(iconsize)))
+                    Image(systemName: "plus")
+                        .accessibility(label: Text("Add location"))
                 }
-                .background(Circle().opacity(buttonOpacity))
-                Spacer()
+                .buttonStyle(CircleButtonStyle())
+                // Disable in MainScreen state
+                .opacity(0.5)
+                .disabled(true)
         }
-      
     }
+    .padding(20)
 }
 
 struct MainScreenButtons_Previews: PreviewProvider {

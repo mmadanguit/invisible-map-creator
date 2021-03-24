@@ -89,17 +89,14 @@ struct ContentView: View {
 extension ContentView: ContentViewController {
     func displayRecordingUI() {
         buttonLayoutWrapper.buttonUI = .recordMap
-        print("Record map screen")
     }
     
     func displayMainScreen() {
         buttonLayoutWrapper.buttonUI = .mainScreen
-        print("Main screen")
     }
     
     func displayOptionsMenu() {
         popoverViewWrapper.popoverUI = .optionsMenu
-        print("Options menu screen")
     }
 }
 

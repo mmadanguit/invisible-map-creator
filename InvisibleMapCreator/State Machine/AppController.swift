@@ -50,6 +50,10 @@ extension AppController {
     func startRecordingRequested() {
         processCommands(commands: state.handleEvent(event: .StartRecordingRequested))
     }
+    
+    func stopRecordingRequested() {
+        processCommands(commands: state.handleEvent(event: .StopRecordingRequested(mapName: "placeholder")))
+    }
 }
 
 protocol ContentViewController {
