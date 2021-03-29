@@ -7,37 +7,12 @@
 
 import SwiftUI
 
-struct RectangleButtonStyle: ButtonStyle {
-    func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label
-            .frame(width: 80, height: 40)
-            .padding(5)
-            .foregroundColor(.white)
-            .font(.system(size: 20))
-            .background(
-                RoundedRectangle(cornerRadius: 15)
-                    .opacity(0.7))
-    }
-}
-
-struct CircleButtonStyle: ButtonStyle {
-    func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label
-            .frame(width: CGFloat(40), height: CGFloat(40))
-            .padding(10)
-            .foregroundColor(.white)
-            .font(.system(size: CGFloat(30)))
-            .background(
-                Circle()
-                    .opacity(0.7))
-    }
-}
 
 struct MainScreenButtons: View {
     
     @ObservedObject var popoverViewWrapper = GlobalState.shared.popoverViewWrapper // Track changes to popover UI
     @State var showPopover: Bool = false // Track whether popover is showing
-    @State var recording = false // Track whether map is currently being recorded
+    @State var recording: Bool // Track whether map is currently being recorded
     
     func buildPopoverView() -> some View {
         switch popoverViewWrapper.popoverUI {
@@ -97,7 +72,7 @@ struct MainScreenButtons: View {
                 // Record map button
                 Button(action: {
                     withAnimation {
-                        recording = true
+                        recording.toggle()
                     }
                     AppController.shared.startRecordingRequested() // Request start recording in state machine
                 }){
@@ -133,7 +108,7 @@ struct MainScreenButtons: View {
 
 struct MainScreenButtons_Previews: PreviewProvider {
     static var previews: some View {
-        MainScreenButtons()
+        MainScreenButtons(recording: false)
     }
 }
 }

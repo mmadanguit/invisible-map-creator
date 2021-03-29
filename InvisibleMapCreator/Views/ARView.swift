@@ -37,7 +37,7 @@ class ARView: UIViewController {
        super.viewDidLoad()
        arView.delegate = self
        arView.scene = SCNScene()
-       arView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+       //arView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
     }
     
     // Functions for standard AR view handling

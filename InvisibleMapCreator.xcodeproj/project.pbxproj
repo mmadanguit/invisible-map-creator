@@ -13,6 +13,12 @@
 		14474A5925F6EA8500B51793 /* VideoWalkthroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14474A5825F6EA8500B51793 /* VideoWalkthroughView.swift */; };
 		14474A5D25F6EB0800B51793 /* GiveFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14474A5C25F6EB0800B51793 /* GiveFeedbackView.swift */; };
 		144BCE6B260A78BC0098D493 /* RecordMapButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144BCE6A260A78BC0098D493 /* RecordMapButtons.swift */; };
+		14660ED9260AE42A0051FAFB /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14660ED8260AE42A0051FAFB /* MenuButton.swift */; };
+		14660EDD260AE49F0051FAFB /* UndoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14660EDC260AE49F0051FAFB /* UndoButton.swift */; };
+		14660EE1260AE4D90051FAFB /* ManageLocationsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14660EE0260AE4D90051FAFB /* ManageLocationsButton.swift */; };
+		14660EE4260AE4FF0051FAFB /* AddLocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14660EE3260AE4FF0051FAFB /* AddLocationButton.swift */; };
+		14660EEB260AE5330051FAFB /* RecordMapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14660EEA260AE5330051FAFB /* RecordMapButton.swift */; };
+		14660EEE260AE5EB0051FAFB /* ButtonLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14660EED260AE5EB0051FAFB /* ButtonLayout.swift */; };
 		1470FAFF25F205EA00564036 /* InvisibleMapCreatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1470FAFE25F205EA00564036 /* InvisibleMapCreatorApp.swift */; };
 		1470FB0125F205EA00564036 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1470FB0025F205EA00564036 /* ContentView.swift */; };
 		1470FB0325F205F600564036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1470FB0225F205F600564036 /* Assets.xcassets */; };
@@ -35,6 +41,12 @@
 		14474A5825F6EA8500B51793 /* VideoWalkthroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoWalkthroughView.swift; sourceTree = "<group>"; };
 		14474A5C25F6EB0800B51793 /* GiveFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveFeedbackView.swift; sourceTree = "<group>"; };
 		144BCE6A260A78BC0098D493 /* RecordMapButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordMapButtons.swift; sourceTree = "<group>"; };
+		14660ED8260AE42A0051FAFB /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
+		14660EDC260AE49F0051FAFB /* UndoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoButton.swift; sourceTree = "<group>"; };
+		14660EE0260AE4D90051FAFB /* ManageLocationsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageLocationsButton.swift; sourceTree = "<group>"; };
+		14660EE3260AE4FF0051FAFB /* AddLocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationButton.swift; sourceTree = "<group>"; };
+		14660EEA260AE5330051FAFB /* RecordMapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordMapButton.swift; sourceTree = "<group>"; };
+		14660EED260AE5EB0051FAFB /* ButtonLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLayout.swift; sourceTree = "<group>"; };
 		1470FAFB25F205EA00564036 /* InvisibleMapCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InvisibleMapCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1470FAFE25F205EA00564036 /* InvisibleMapCreatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvisibleMapCreatorApp.swift; sourceTree = "<group>"; };
 		1470FB0025F205EA00564036 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,6 +88,18 @@
 				14474A5C25F6EB0800B51793 /* GiveFeedbackView.swift */,
 			);
 			path = "Menu Views";
+			sourceTree = "<group>";
+		};
+		14660EDB260AE48F0051FAFB /* Button Views */ = {
+			isa = PBXGroup;
+			children = (
+				14660ED8260AE42A0051FAFB /* MenuButton.swift */,
+				14660EDC260AE49F0051FAFB /* UndoButton.swift */,
+				14660EE0260AE4D90051FAFB /* ManageLocationsButton.swift */,
+				14660EEA260AE5330051FAFB /* RecordMapButton.swift */,
+				14660EE3260AE4FF0051FAFB /* AddLocationButton.swift */,
+			);
+			path = "Button Views";
 			sourceTree = "<group>";
 		};
 		1470FAF225F205EA00564036 = {
@@ -131,8 +155,10 @@
 			children = (
 				1470FB0025F205EA00564036 /* ContentView.swift */,
 				14752BA22604E31900201669 /* ARView.swift */,
+				14660EED260AE5EB0051FAFB /* ButtonLayout.swift */,
 				14752BA62604FE7900201669 /* MainScreenButtons.swift */,
 				144BCE6A260A78BC0098D493 /* RecordMapButtons.swift */,
+				14660EDB260AE48F0051FAFB /* Button Views */,
 				14474A5225F6E9E000B51793 /* Menu Views */,
 			);
 			path = Views;
@@ -218,17 +244,23 @@
 				14474A5D25F6EB0800B51793 /* GiveFeedbackView.swift in Sources */,
 				14474A5025F6E9DB00B51793 /* ManageMapsView.swift in Sources */,
 				1470FB1C25F2067600564036 /* MapRecorder.swift in Sources */,
+				14660EEB260AE5330051FAFB /* RecordMapButton.swift in Sources */,
 				1470FB2625F27CF500564036 /* SideMenuOptionView.swift in Sources */,
 				14752BA32604E31900201669 /* ARView.swift in Sources */,
 				1470FB0125F205EA00564036 /* ContentView.swift in Sources */,
+				14660EE4260AE4FF0051FAFB /* AddLocationButton.swift in Sources */,
 				144BCE6B260A78BC0098D493 /* RecordMapButtons.swift in Sources */,
+				14660EE1260AE4D90051FAFB /* ManageLocationsButton.swift in Sources */,
 				14752BA72604FE7900201669 /* MainScreenButtons.swift in Sources */,
 				14474A4D25F6E8FB00B51793 /* PrintTagsView.swift in Sources */,
+				14660EEE260AE5EB0051FAFB /* ButtonLayout.swift in Sources */,
 				1470FB1825F2065F00564036 /* AppController.swift in Sources */,
+				14660EDD260AE49F0051FAFB /* UndoButton.swift in Sources */,
 				1470FB2125F27CC700564036 /* SideMenuViewModel.swift in Sources */,
 				1470FB1525F2064A00564036 /* StateType.swift in Sources */,
 				1470FB2A25F27D0000564036 /* SideMenuView.swift in Sources */,
 				14474A5925F6EA8500B51793 /* VideoWalkthroughView.swift in Sources */,
+				14660ED9260AE42A0051FAFB /* MenuButton.swift in Sources */,
 				14474A5625F6EA7000B51793 /* SettingsView.swift in Sources */,
 				1470FB1025F2062A00564036 /* AppState.swift in Sources */,
 				1470FAFF25F205EA00564036 /* InvisibleMapCreatorApp.swift in Sources */,
@@ -369,7 +401,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Occam.InvisibleMapCreator;
+				PRODUCT_BUNDLE_IDENTIFIER = test.InvisibleMapCreator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -391,7 +423,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Occam.InvisibleMapCreator;
+				PRODUCT_BUNDLE_IDENTIFIER = test.InvisibleMapCreator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

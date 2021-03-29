@@ -9,7 +9,6 @@ import SwiftUI
 
 struct RecordMapButtons: View {
     
-    @State var showPopover: Bool = false // Track whether popover is showing
     @State var recording = true // Track whether map is currently being recorded
     
     var body: some View {
